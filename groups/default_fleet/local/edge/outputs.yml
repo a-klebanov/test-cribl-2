@@ -1,0 +1,64 @@
+outputs:
+  out_cribl_tcp_workers:
+    systemFields:
+      - cribl_pipe
+    streamtags: []
+    loadBalanced: true
+    compression: gzip
+    throttleRatePerSec: "0"
+    tls:
+      disabled: true
+    connectionTimeout: 10000
+    writeTimeout: 60000
+    tokenTTLMinutes: 60
+    onBackpressure: block
+    excludeSelf: false
+    hosts:
+      - port: 10300
+        tls: inherit
+        weight: 1
+        host: workers
+    dnsResolvePeriodSec: 600
+    loadBalanceStatsPeriodSec: 300
+    maxConcurrentSenders: 0
+    port: 10300
+    type: cribl_tcp
+#  splunk:
+#    systemFields:
+#      - cribl_pipe
+#    streamtags: []
+#    port: 9997
+#    nestedFields: none
+#    throttleRatePerSec: "0"
+#    tls:
+#      disabled: true
+#    connectionTimeout: 10000
+#    writeTimeout: 60000
+#    enableMultiMetrics: false
+#    enableACK: true
+#    onBackpressure: block
+#    authType: manual
+#    authToken: ""
+#    type: splunk
+#    host: splunk
+  prometheus:
+    systemFields:
+      - cribl_host
+      - cribl_wp
+    streamtags: []
+    metricRenameExpr: name.replace(/[^a-zA-Z0-9_]/g, '_')
+    sendMetadata: true
+    concurrency: 5
+    maxPayloadSizeKB: 4096
+    maxPayloadEvents: 0
+    rejectUnauthorized: false
+    timeoutSec: 30
+    flushPeriodSec: 1
+    useRoundRobinDns: false
+    failedRequestLoggingMode: none
+    safeHeaders: []
+    onBackpressure: block
+    authType: none
+    metricsFlushPeriodSec: 60
+    type: prometheus
+    url: http://prometheus:9090/api/v1/write

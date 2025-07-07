@@ -1,0 +1,14 @@
+inputs:
+  in_cribl_tcp:
+    disabled: false
+    sendToRoutes: true
+    pqEnabled: false
+    streamtags: []
+    host: 0.0.0.0
+    tls:
+      disabled: true
+      requestCert: false
+    maxActiveCxn: 1000
+    enableProxyHeader: false
+    type: cribl_tcp
+    port: 10300
