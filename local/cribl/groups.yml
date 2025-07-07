@@ -1,7 +1,7 @@
 default:
   description: Default Worker Group
   tags: default
-  configVersion: 0b6746d
+  configVersion: 501a5da
   lookupDeployments: []
 default_fleet:
   description: Default Fleet
