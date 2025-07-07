@@ -1,0 +1,24 @@
+test-1:
+  type: collection
+  ttl: 4h
+  ignoreGroupJobsLimit: false
+  removeFields: []
+  resumeOnBoot: false
+  schedule: {}
+  streamtags: []
+  workerAffinity: false
+  collector:
+    conf:
+      shell: /bin/bash
+      discoverScript: "echo 1 "
+      collectScript: echo 2
+    destructive: false
+    type: script
+  input:
+    type: collection
+    staleChannelFlushMs: 10000
+    sendToRoutes: true
+    preprocess:
+      disabled: true
+    throttleRatePerSec: "0"
+  description: test-1
