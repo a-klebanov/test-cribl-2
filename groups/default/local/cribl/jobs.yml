@@ -69,3 +69,27 @@ test-3:
       disabled: true
     throttleRatePerSec: "0"
   description: test-3
+test-4:
+  type: collection
+  ttl: 4h
+  ignoreGroupJobsLimit: false
+  removeFields: []
+  resumeOnBoot: false
+  schedule: {}
+  streamtags: []
+  workerAffinity: false
+  collector:
+    conf:
+      shell: /bin/bash
+      discoverScript: echo 4
+      collectScript: echo 4
+    destructive: false
+    type: script
+  input:
+    type: collection
+    staleChannelFlushMs: 10000
+    sendToRoutes: true
+    preprocess:
+      disabled: true
+    throttleRatePerSec: "0"
+  description: test-4
