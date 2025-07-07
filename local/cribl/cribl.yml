@@ -6,5 +6,5 @@ git:
   gitOps: none
   remote: git@github.com:a-klebanov/test-cribl-2.git
   autoAction: none
-  strictHostKeyChecking: true
+  strictHostKeyChecking: false
   timeout: 300000
