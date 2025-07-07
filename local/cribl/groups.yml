@@ -1,8 +1,12 @@
 default:
   description: Default Worker Group
   tags: default
-  configVersion: 501a5da
+  configVersion: 2f13d64
   lookupDeployments: []
+  workerCount: 1
+  incompatibleWorkerCount: 0
+  deployingWorkerCount: 0
+  workerRemoteAccess: true
 default_fleet:
   description: Default Fleet
   tags: default

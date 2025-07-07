@@ -93,3 +93,43 @@ test-4:
       disabled: true
     throttleRatePerSec: "0"
   description: test-4
+test-5:
+  type: collection
+  ttl: 4h
+  ignoreGroupJobsLimit: false
+  removeFields: []
+  resumeOnBoot: false
+  schedule:
+    cronSchedule: "* * * * *"
+    maxConcurrentRuns: 1
+    skippable: true
+    run:
+      rescheduleDroppedTasks: true
+      maxTaskReschedule: 1
+      logLevel: info
+      jobTimeout: "0"
+      mode: run
+      timeRangeType: relative
+      timeWarning: {}
+      expression: "true"
+      minTaskSize: 1MB
+      maxTaskSize: 10MB
+    enabled: true
+  streamtags: []
+  workerAffinity: false
+  collector:
+    conf:
+      shell: /bin/bash
+      discoverScript: "echo 5 "
+      collectScript: echo 5
+    destructive: false
+    type: script
+  input:
+    type: collection
+    staleChannelFlushMs: 10000
+    sendToRoutes: true
+    preprocess:
+      disabled: true
+    throttleRatePerSec: "0"
+  description: test-5
+  savedState: {}
